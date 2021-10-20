@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CurrentWeatherInfo from "../../components/CurrentWeatherInfo";
 import { getWeatherDetail } from "../../store/actions";
-
+import { convertUtcToLocalTime } from "../../utils/index";
 const CurrentWeatherContainer = () => {
   const dispatch = useDispatch();
 
@@ -10,9 +10,9 @@ const CurrentWeatherContainer = () => {
   const {
     loading,
     error,
-    data: { current },
+    data: { current, timezone_offset, timezone },
   } = currentWeather;
-
+  console.log(timezone_offset);
   useEffect(() => {
     dispatch(getWeatherDetail());
   }, [dispatch]);
@@ -23,14 +23,24 @@ const CurrentWeatherContainer = () => {
   if (error) {
     return <div>Error</div>;
   }
+  let sunriseLocalTime = convertUtcToLocalTime(
+    current?.sunrise,
+    timezone_offset,
+    timezone
+  );
+  let sunsetLocalTime = convertUtcToLocalTime(
+    current?.sunset,
+    timezone_offset,
+    timezone
+  );
   return (
     <div>
       <CurrentWeatherInfo
         temperature={current?.temp}
         feelsLike={current?.feels_like}
         windSpeed={current?.wind_speed}
-        sunrise={current?.sunrise}
-        sunset={current?.sunset}
+        sunrise={sunriseLocalTime}
+        sunset={sunsetLocalTime}
         weather={current?.weather}
       />
     </div>
