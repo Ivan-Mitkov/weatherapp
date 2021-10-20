@@ -12,7 +12,6 @@ const CurrentWeatherContainer = () => {
     error,
     data: { current, timezone_offset, timezone },
   } = currentWeather;
-  console.log(timezone_offset);
   useEffect(() => {
     dispatch(getWeatherDetail());
   }, [dispatch]);
@@ -42,6 +41,7 @@ const CurrentWeatherContainer = () => {
         sunrise={sunriseLocalTime}
         sunset={sunsetLocalTime}
         weather={current?.weather}
+        humidity={current?.humidity}
       />
     </div>
   );

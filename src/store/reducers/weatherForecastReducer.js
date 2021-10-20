@@ -7,7 +7,6 @@ import {
 const initialState = { data: {}, error: "", loading: "" };
 export const weatherForecastReducer = (state = initialState, action) => {
   const { type, payload } = action;
-  console.log(payload);
   switch (type) {
     case WEATHER_DETAILS_REQUEST:
       return {

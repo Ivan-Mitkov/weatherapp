@@ -1,9 +1,11 @@
 import React from "react";
 import moment from "moment";
+import styles from "./styles.module.scss";
 const CurrentWeatherInfo = ({
   temperature,
   feelsLike,
   windSpeed,
+  humidity,
   sunrise,
   sunset,
   weather,
@@ -12,8 +14,9 @@ const CurrentWeatherInfo = ({
   if (weather) {
     weatherCondition = weather[0].main;
   }
+
   return (
-    <div>
+    <div className={styles.current}>
       <div>В момента</div>
       <div>
         {temperature}
@@ -24,12 +27,18 @@ const CurrentWeatherInfo = ({
         Усеща се като {feelsLike}
         <span>&#176;C </span>
       </div>
-      <div>
-        {windSpeed}
-        <span>м/с</span>
+      <div className={styles.extras}>
+        <div>
+          {humidity}
+          <span>%</span>
+        </div>
+        <div>
+          {windSpeed}
+          <span>м/с</span>
+        </div>
+        <div>Изгрев {moment(sunrise).format("HH:mm")}</div>
+        <div>Залез {moment(sunset).format("HH:mm")}</div>
       </div>
-      <div>Изгрев {moment(sunrise).format("LT")}</div>
-      <div>Залез {moment(sunset).format("LT")}</div>
     </div>
   );
 };
