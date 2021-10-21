@@ -1,0 +1,62 @@
+.dseSelect {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  &Label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem;
+    padding-left: 1rem;
+    border: 1px solid rgb(209, 208, 208);
+    background-color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  &Overlay {
+    box-sizing: border-box;
+    padding: none;
+    margin: none;
+    border: 1px solid rgb(209, 208, 208);
+    background-color: #fff;
+    z-index: 99;
+    position: absolute;
+    top: 2rem;
+    width: 300px;
+    // box-shadow: 0 4px 11px rgba(218, 225, 255, 0.21);
+    opacity: 1;
+  }
+  &Option {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0.3rem;
+
+    &:hover {
+      background-color: rgb(246, 251, 250);
+      color: rgb(15, 15, 15);
+    }
+
+    &Highlighted {
+      background-color: rgb(242, 250, 248);
+      color: rgb(75, 74, 74);
+    }
+
+    &Selected {
+      background-color: rgb(231, 248, 244);
+      color: rgb(75, 74, 74);
+    }
+  }
+  &Caret {
+    transition: all 250ms ease;
+    &Open {
+      transform: rotate(180deg);
+    }
+    &Closed {
+      transform: rotate(0deg);
+    }
+  }
+}

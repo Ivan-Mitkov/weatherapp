@@ -7,14 +7,15 @@ const CurrentWeatherContainer = () => {
   const dispatch = useDispatch();
 
   const currentWeather = useSelector((state) => state.weather);
+  const currentCity = useSelector((state) => state.city);
   const {
     loading,
     error,
     data: { current, timezone_offset, timezone },
   } = currentWeather;
   useEffect(() => {
-    dispatch(getWeatherDetail());
-  }, [dispatch]);
+    dispatch(getWeatherDetail(currentCity.lat, currentCity.lon));
+  }, [dispatch, currentCity]);
 
   if (loading) {
     return <div>Loading</div>;
@@ -35,6 +36,7 @@ const CurrentWeatherContainer = () => {
   return (
     <div>
       <CurrentWeatherInfo
+        currentCity={currentCity?.activeCity}
         temperature={current?.temp}
         feelsLike={current?.feels_like}
         windSpeed={current?.wind_speed}
