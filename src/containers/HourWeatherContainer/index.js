@@ -32,11 +32,11 @@ const HourWeatherContainer = () => {
       {hourly &&
         hourly.map((current) => (
           <HourWeatherInfo
-            key={convertUtcToLocalTime(current?.dt, timezone_offset, timezone)}
+            key={current.dt * 1000}
             temperature={current?.temp}
             feelsLike={current?.feels_like}
             windSpeed={current?.wind_speed}
-            day={current.dt * 1000}
+            day={convertUtcToLocalTime(current?.dt, timezone_offset, timezone)}
             humidity={current?.humidity}
             pressure={current.pressure}
             windDegree={current.wind_deg}

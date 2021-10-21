@@ -15,7 +15,7 @@ const HourWeatherInfo = ({
   return (
     <div className={styles.current}>
       <div>{moment(day).format("HH")}:00</div>
-      <div>{moment(day).format("DD.MM.YYY")}</div>
+      <div>{moment(day).format("DD.MM.YYYY")}</div>
       <div>
         {temperature}
         <span>&#176;C </span>
