@@ -1,7 +1,7 @@
 import React from "react";
 
 const DaylyForecast = () => {
-  return <div>Dayly</div>;
+  return <div>Daily</div>;
 };
 
 export default DaylyForecast;

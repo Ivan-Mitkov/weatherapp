@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import ForecastInfo from "../../components/ForecastInfo";
-import { getWeatherDetail } from "../../store/actions";
-import { convertUtcToLocalTime } from "../../utils/index";
 import styles from "./styles.module.scss";
 const CurrentWeatherContainer = () => {
-  const dispatch = useDispatch();
 
   const currentWeather = useSelector((state) => state.weather);
   const {
@@ -13,9 +10,7 @@ const CurrentWeatherContainer = () => {
     error,
     data: { daily },
   } = currentWeather;
-  useEffect(() => {
-    dispatch(getWeatherDetail());
-  }, [dispatch]);
+ 
 
   if (loading) {
     return null;
