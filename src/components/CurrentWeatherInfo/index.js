@@ -9,7 +9,6 @@ const CurrentWeatherInfo = ({
   sunrise,
   sunset,
   weather,
-  currentCity,
 }) => {
   let weatherCondition = "";
   if (weather) {
@@ -18,8 +17,6 @@ const CurrentWeatherInfo = ({
 
   return (
     <div className={styles.current}>
-      <div>В момента </div>
-      <div>{currentCity}</div>
       <div>
         {temperature}
         <span>&#176;C </span>

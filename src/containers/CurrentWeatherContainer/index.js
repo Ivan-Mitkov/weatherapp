@@ -15,7 +15,7 @@ const CurrentWeatherContainer = () => {
   } = currentWeather;
   useEffect(() => {
     dispatch(getWeatherDetail(currentCity.lat, currentCity.lon));
-  }, [dispatch, currentCity]);
+  }, [dispatch, currentCity.lat, currentCity.lon]);
 
   if (loading) {
     return <div>Loading</div>;

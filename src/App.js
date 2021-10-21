@@ -1,10 +1,10 @@
 import "./App.css";
-import CurrentWeather from "./screens/CurrentWeatherScreen";
+import Tabs from "./screens/Tabs";
 
 function App() {
   return (
     <div className="App">
-      <CurrentWeather />
+      <Tabs />
     </div>
   );
 }

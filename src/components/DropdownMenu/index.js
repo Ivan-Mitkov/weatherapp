@@ -24,7 +24,7 @@ const Dropdown = ({
 
   React.useEffect(() => {
     setOptionRefs(options.length > 0 && options.map((_) => React.createRef()));
-  }, [options.length]);
+  }, [options]);
 
   /**
    * calculate height of the button

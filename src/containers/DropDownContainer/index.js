@@ -8,6 +8,7 @@ const options = [
     label: "London",
     value: {
       city: "London",
+      country: "United Kingdom",
       lat: 51.507351,
       lon: -0.127758,
     },
@@ -16,6 +17,7 @@ const options = [
     label: "Paris",
     value: {
       city: "Paris",
+      country: "France",
       lat: 48.856613,
       lon: 2.352222,
     },
@@ -24,14 +26,16 @@ const options = [
     label: "Berlin",
     value: {
       city: "Berlin",
+      country: "Germany",
       lat: 52.520008,
       lon: 13.404954,
     },
   },
   {
-    label: "Sofia",
+    label: "София",
     value: {
-      city: "Sofia",
+      city: "София",
+      country: "България",
       lat: 42.697708,
       lon: 23.321867,
     },
@@ -40,6 +44,7 @@ const options = [
     label: "Stockholm",
     value: {
       city: "Stockholm",
+      country: "Sweden",
       lat: 59.329323,
       lon: 18.068581,
     },
@@ -48,6 +53,7 @@ const options = [
     label: "Rome",
     value: {
       city: "Rome",
+      country: "Italy",
       lat: 41.902782,
       lon: 12.496366,
     },
@@ -56,6 +62,7 @@ const options = [
     label: "Brussel",
     value: {
       city: "Brussel",
+      country: "Belgium",
       lat: 50.8505,
       lon: 4.3488,
     },
