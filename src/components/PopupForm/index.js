@@ -1,41 +1,43 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createMetrics } from "../../store/actions";
 import styles from "./styles.module.scss";
 const Form = () => {
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
+    dt: Math.floor(Date.now() / 1000),
+    station_id: `${process.env.REACT_APP_STATION_ID}`,
     username: "",
     email: "",
     temp: "",
-    wSpeed: "",
+    wind_speed: "",
     humidity: "",
     pressure: "",
-    rain: "",
+    rain_1h: "",
   });
   const [errors, setErrors] = useState({
     username: false,
     email: false,
     temp: false,
-    wSpeed: false,
+    wind_speed: false,
     humidity: false,
     pressure: false,
-    rain: false,
+    rain_1h: false,
   });
-
-  const [valid, setValid] = useState(false);
 
   const isFormValid = () => {
     const hasError = Object.values(errors).find((a) => a === true);
     const isValid = hasError === undefined;
-    setValid(isValid);
     return isValid;
   };
   const errorMessages = {
     username: "Username is required",
     email: "Email is required",
     temp: "Temperature must be between -20 and +60",
-    wSpeed: "Wind speed must be between 0 and 200",
+    wind_speed: "Wind speed must be between 0 and 200",
     humidity: "Humidity must be between 0 and 100",
     pressure: "Pressure must be between 0 and 3000",
-    rain: "Rain must be between 0 and 1000",
+    rain_1h: "rain_1h must be between 0 and 1000",
   };
 
   const validateInput = (e) => {
@@ -79,16 +81,16 @@ const Form = () => {
           });
         }
         break;
-      case "wSpeed":
+      case "wind_speed":
         if (e.target.value < 0 || e.target.value > 200) {
           setErrors({
             ...errors,
-            wSpeed: true,
+            wind_speed: true,
           });
         } else {
           setErrors({
             ...errors,
-            wSpeed: false,
+            wind_speed: false,
           });
         }
         break;
@@ -118,16 +120,16 @@ const Form = () => {
           });
         }
         break;
-      case "rain":
+      case "rain_1h":
         if (e.target.value < 0 || e.target.value > 1000) {
           setErrors({
             ...errors,
-            rain: true,
+            rain_1h: true,
           });
         } else {
           setErrors({
             ...errors,
-            rain: false,
+            rain_1h: false,
           });
         }
         break;
@@ -144,14 +146,29 @@ const Form = () => {
       });
     }
   };
-  const handleSubmite = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const isValidForm = isFormValid();
-    console.log(isValidForm);
+    if (isValidForm) {
+      console.log(`Form is valid`);
+      const formDataToSend = [
+        {
+          ...form,
+          temp: parseInt(form.temp),
+          wind_speed: parseInt(form.wind_speed),
+          humidity: parseInt(form.humidity),
+          pressure: parseInt(form.pressure),
+          rain_1h: parseInt(form.rain_1h),
+        },
+      ];
+      dispatch(createMetrics(formDataToSend));
+    } else {
+      console.log(`Invalid!`);
+    }
   };
   return (
     <div>
-      <form onSubmit={handleSubmite} className={styles.formContainer}>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label htmlFor="username">Username</label>
         <div className={styles.errors}>
           <input
@@ -171,7 +188,7 @@ const Form = () => {
             type="email"
             id="email"
             name="email"
-            minLength="1"
+            minLength="3"
             required
             onChange={handleChange}
           />
@@ -188,16 +205,16 @@ const Form = () => {
           />
           {errors.temp && <small>{errorMessages.temp}</small>}
         </div>
-        <label htmlFor="wSpeed">Wind Speed</label>
+        <label htmlFor="wind_speed">Wind Speed</label>
         <div className={styles.errors}>
           <input
             type="number"
-            id="wSpeed"
-            name="wSpeed"
+            id="wind_speed"
+            name="wind_speed"
             required
             onChange={handleChange}
           />
-          {errors.wSpeed && <small>{errorMessages.wSpeed}</small>}
+          {errors.wind_speed && <small>{errorMessages.wind_speed}</small>}
         </div>
         <label htmlFor="humidity">Humidity</label>
         <div className={styles.errors}>
@@ -221,16 +238,16 @@ const Form = () => {
           />
           {errors.pressure && <small>{errorMessages.pressure}</small>}
         </div>
-        <label htmlFor="rain">Rain</label>
+        <label htmlFor="rain_1h">Rain</label>
         <div className={styles.errors}>
           <input
             type="number"
-            id="rain"
-            name="rain"
+            id="rain_1h"
+            name="rain_1h"
             required
             onChange={handleChange}
           />
-          {errors.rain && <small>{errorMessages.rain}</small>}
+          {errors.rain_1h && <small>{errorMessages.rain_1h}</small>}
         </div>
         <button type="submit">Submit</button>
       </form>

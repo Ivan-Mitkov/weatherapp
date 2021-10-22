@@ -9,14 +9,14 @@
   row-gap: 20px;
   column-gap: 0;
   margin-top: 40px;
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 450px) {
     row-gap: 5px;
   }
   & input {
     height: 40px;
     min-width: 200px;
   }
-  & div {
+  & label {
     min-height: 40px;
     min-width: 200px;
     display: flex;
@@ -24,18 +24,22 @@
     justify-content: center;
     width: 100%;
 
-    @media screen and (min-width: 420px) {
+    @media screen and (min-width: 450px) {
       justify-content: flex-end;
     }
     @media screen and (max-width: 420px) {
       align-items: flex-end;
+      width: fit-content;
     }
   }
+
   & .errors {
     display: flex;
     flex-direction: column;
+
     & small {
       color: red;
+      visibility: visible;
     }
   }
 }
