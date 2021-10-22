@@ -10,21 +10,19 @@
 .dropdown {
   justify-self: end;
 }
-.tabs {
-  // height: 10%;
-}
 
 .tablist {
   margin: 0;
 }
 .tabPanels {
   background-color: #fff;
+  width: fit-content;
 }
 .city {
   color: #fff;
   font-size: 4rem;
   background-color: rgba(#000, 0.2);
-  border-radius: 4px 4px 4px 0;
+  border-radius: 4px 4px 0 0;
   width: max-content;
   padding-right: 2rem;
 }
@@ -43,11 +41,10 @@
   width: 200px;
   padding: 2rem;
   border: none;
-  background-color: rgb(61, 61, 253);
-  color: #fff;
+  background-color: rgb(226, 226, 253);
   font-size: 1.6rem;
   border-radius: 4px;
   &:hover {
-    background-color: darken(rgb(61, 61, 253), 30%);
+    background-color: darken(rgb(226, 226, 253), 2%);
   }
 }

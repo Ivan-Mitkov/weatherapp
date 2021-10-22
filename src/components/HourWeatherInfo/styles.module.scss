@@ -1,3 +1,8 @@
+.container {
+  padding: 2rem;
+  height: 100%;
+  padding: 20px 0;
+}
 .current {
   display: flex;
   flex-direction: column;
@@ -5,6 +10,9 @@
   justify-content: space-between;
   padding: 0 4px;
   min-width: 120px;
+  height: 100%;
+  border-left: 1px dashed #000;
+  text-align: center;
 }
 .legend {
   display: flex;

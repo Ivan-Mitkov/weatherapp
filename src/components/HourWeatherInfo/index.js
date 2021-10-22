@@ -13,6 +13,7 @@ const HourWeatherInfo = ({
 }) => {
   const direction = calculateDirection(windDegree);
   return (
+    <div className={styles.container}>
     <div className={styles.current}>
       <div>{moment(day).format("HH")}:00</div>
       <div>{moment(day).format("DD.MM.YYYY")}</div>
@@ -35,6 +36,7 @@ const HourWeatherInfo = ({
         {humidity}
         <span>%</span>
       </div>
+    </div>
     </div>
   );
 };

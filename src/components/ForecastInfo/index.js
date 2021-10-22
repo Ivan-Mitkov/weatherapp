@@ -11,17 +11,19 @@ const ForecastInfo = ({ day, temperatureLow, temperatureHigh, weather }) => {
   }
 
   return (
-    <div className={styles.forecast}>
-      <div>{moment(day).format("dddd")}</div>
-      <div>{moment(day).format("D.MM.yyyy")}</div>
+    <div className={styles.container}>
+      <div className={styles.forecast}>
+        <div>{moment(day).format("dddd")}</div>
+        <div>{moment(day).format("D.MM.yyyy")}</div>
 
-      <div>{weatherMain}</div>
-      <div>
-        {temperatureLow}
-        <span>&#176;</span>/{temperatureHigh}
-        <span>&#176;</span>
+        <div>{weatherMain}</div>
+        <div>
+          {temperatureLow}
+          <span>&#176;</span>/{temperatureHigh}
+          <span>&#176;</span>
+        </div>
+        <div>{weatherDescripion}</div>
       </div>
-      <div>{weatherDescripion}</div>
     </div>
   );
 };
