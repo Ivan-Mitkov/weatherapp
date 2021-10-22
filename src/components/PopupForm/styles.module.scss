@@ -1,0 +1,41 @@
+.formContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 500px;
+  min-width: 250px;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  row-gap: 20px;
+  column-gap: 0;
+  margin-top: 40px;
+  @media screen and (max-width: 420px) {
+    row-gap: 5px;
+  }
+  & input {
+    height: 40px;
+    min-width: 200px;
+  }
+  & div {
+    min-height: 40px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @media screen and (min-width: 420px) {
+      justify-content: flex-end;
+    }
+    @media screen and (max-width: 420px) {
+      align-items: flex-end;
+    }
+  }
+  & .errors {
+    display: flex;
+    flex-direction: column;
+    & small {
+      color: red;
+    }
+  }
+}
