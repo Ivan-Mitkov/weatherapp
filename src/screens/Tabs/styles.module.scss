@@ -16,30 +16,36 @@
 
 .tablist {
   margin: 0;
-  
 }
 .tabPanels {
   background-color: #fff;
 }
 .city {
   color: #fff;
-  font-size: 2rem;
+  font-size: 4rem;
+  background-color: rgba(#000, 0.2);
+  border-radius: 4px 4px 4px 0;
+  width: max-content;
+  padding-right: 2rem;
 }
 
 .country {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 2rem;
+  background-color: rgba(#000, 0.2);
+  border-radius: 0 0 4px 4px;
+  width: max-content;
+  padding-right: 2rem;
 }
 .addButton {
   justify-self: end;
   align-self: flex-end;
   width: 200px;
-  margin-right: 50px;
-  padding: 0.4rem;
+  padding: 2rem;
   border: none;
   background-color: rgb(61, 61, 253);
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   border-radius: 4px;
   &:hover {
     background-color: darken(rgb(61, 61, 253), 30%);

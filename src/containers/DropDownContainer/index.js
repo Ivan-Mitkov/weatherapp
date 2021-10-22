@@ -75,7 +75,11 @@ const DropdownContainer = () => {
   };
   return (
     <div className={styles.container}>
-      <Dropdown options={options} onOptionSelected={handleCoordinates} />
+      <Dropdown
+        options={options}
+        onOptionSelected={handleCoordinates}
+        label="София"
+      />
     </div>
   );
 };
