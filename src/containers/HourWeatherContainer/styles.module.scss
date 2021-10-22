@@ -1,5 +1,15 @@
 .container {
   display: flex;
-  overflow: scroll;
-  max-width: 90%;
+  height: 100%;
+  width: 100%;
+}
+.innerContainer {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  height: 100%;
+  max-width: 80vw;
+}
+.legend {
+  width: min-content;
 }

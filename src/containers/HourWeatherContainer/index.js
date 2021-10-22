@@ -28,20 +28,26 @@ const HourWeatherContainer = () => {
 
   return (
     <div className={styles.container}>
-      <HoursWeatherLegend />
-      {hourly &&
-        hourly.map((current) => (
-          <HourWeatherInfo
-            key={current.dt * 1000}
-            temperature={current?.temp}
-            feelsLike={current?.feels_like}
-            windSpeed={current?.wind_speed}
-            day={convertUtcToLocalTime(current?.dt, timezone_offset, timezone)}
-            humidity={current?.humidity}
-            pressure={current.pressure}
-            windDegree={current.wind_deg}
-          />
-        ))}
+      <HoursWeatherLegend className={styles.legend}/>
+      <div className={styles.innerContainer}>
+        {hourly &&
+          hourly.map((current) => (
+            <HourWeatherInfo
+              key={current.dt * 1000}
+              temperature={current?.temp}
+              feelsLike={current?.feels_like}
+              windSpeed={current?.wind_speed}
+              day={convertUtcToLocalTime(
+                current?.dt,
+                timezone_offset,
+                timezone
+              )}
+              humidity={current?.humidity}
+              pressure={current.pressure}
+              windDegree={current.wind_deg}
+            />
+          ))}
+      </div>
     </div>
   );
 };
