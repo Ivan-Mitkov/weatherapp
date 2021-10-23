@@ -48,3 +48,11 @@
     background-color: darken(rgb(226, 226, 253), 2%);
   }
 }
+.containerPopup {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 800px;
+  /* Z index is very big but the portal is outside this  */
+  z-index: 1000;
+}

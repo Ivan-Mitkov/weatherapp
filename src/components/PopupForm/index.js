@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createMetrics } from "../../store/actions";
+import { createMetrics, closeModal } from "../../store/actions";
 import styles from "./styles.module.scss";
 const Form = () => {
   const dispatch = useDispatch();
@@ -162,12 +162,15 @@ const Form = () => {
         },
       ];
       dispatch(createMetrics(formDataToSend));
+      setTimeout(() => {
+        dispatch(closeModal());
+      }, 1000);
     } else {
       console.log(`Invalid!`);
     }
   };
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label htmlFor="username">Username</label>
         <div className={styles.errors}>
@@ -249,9 +252,11 @@ const Form = () => {
           />
           {errors.rain_1h && <small>{errorMessages.rain_1h}</small>}
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className={styles.btn}>
+          Submit
+        </button>
       </form>
-    </div>
+    </>
   );
 };
 

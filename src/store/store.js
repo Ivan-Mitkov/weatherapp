@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { weatherForecastReducer } from "./reducers/weatherForecastReducer";
 import { cityReducer } from "./reducers/cityReducer";
+import { modalReducer } from "./reducers/modalReducer";
 
 const reducer = combineReducers({
   weather: weatherForecastReducer,
   city: cityReducer,
+  modal: modalReducer,
 });
 const initialState = {};
 const middleware = [thunk];

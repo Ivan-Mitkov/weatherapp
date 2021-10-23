@@ -8,7 +8,8 @@
   justify-items: center;
   row-gap: 20px;
   column-gap: 0;
-  margin-top: 40px;
+  padding-top: 40px;
+  background-color: #eee;
   @media screen and (max-width: 450px) {
     row-gap: 5px;
   }
@@ -42,4 +43,14 @@
       visibility: visible;
     }
   }
+}
+.btn {
+  background-color: rgb(8, 0, 114);
+  color: #eee;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  grid-column: 1/ 3;
+  margin-bottom: 40px;
 }
