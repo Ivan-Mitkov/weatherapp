@@ -6,10 +6,11 @@ const HourWeatherInfo = () => {
       <div className={styles.legend}>
         <div>Час</div>
         <div>Дата</div>
-        <div>Иконка</div>
-        <div>Скорост на вятъра иконка</div>
-        <div>Празно място</div>
+        <div></div>
+        <div></div>
+        <div></div>
         <div>Скорост на вятъра</div>
+        <div></div>
         <div>Усеща се като</div>
         <div>Скорост на вятъра</div>
         <div>Посока на вятъра</div>

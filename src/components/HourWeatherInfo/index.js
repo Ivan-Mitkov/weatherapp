@@ -3,6 +3,7 @@ import moment from "moment";
 import WeatherIcon from "../WeatherIcon";
 import styles from "./styles.module.scss";
 import { calculateDirection } from "../../utils";
+import { ReactComponent as Wind } from "../../resources/icons/wind.svg";
 const HourWeatherInfo = ({
   day,
   temperature,
@@ -28,6 +29,13 @@ const HourWeatherInfo = ({
         </div>
         <div>
           {temperature}
+          <span>&#176;C </span>
+        </div>
+        <div>
+          <Wind style={{ width: "30px", height: "30px" }} />
+        </div>
+        <div>
+          {windSpeed} м/с
           <span>&#176;C </span>
         </div>
         <div></div>

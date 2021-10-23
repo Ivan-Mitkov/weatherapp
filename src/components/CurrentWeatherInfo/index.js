@@ -20,11 +20,14 @@ const CurrentWeatherInfo = ({
 
   return (
     <div className={styles.current}>
-      <WeatherIcon big code={code} />
-      <div>
-        {temperature}
-        <span>&#176;C </span>
+      <div className={styles.currentIcon}>
+        <WeatherIcon big code={code} />
+        <div>
+          {temperature}
+          <span>&#176;C </span>
+        </div>
       </div>
+
       <div>{weatherCondition}</div>
       <div>
         Усеща се като {feelsLike}
