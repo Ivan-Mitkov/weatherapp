@@ -2,10 +2,12 @@
   display: flex;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 .innerContainer {
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
+  scroll-behavior: smooth;
   display: flex;
   height: 100%;
   max-width: 80vw;

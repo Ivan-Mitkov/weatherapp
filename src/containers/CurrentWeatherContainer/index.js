@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CurrentWeatherInfo from "../../components/CurrentWeatherInfo";
 import { getWeatherDetail } from "../../store/actions";
 import { convertUtcToLocalTime } from "../../utils/index";
+import styles from './styles.module.scss'
 const CurrentWeatherContainer = () => {
   const dispatch = useDispatch();
 
@@ -34,7 +35,7 @@ const CurrentWeatherContainer = () => {
     timezone
   );
   return (
-    <div>
+    <div className={styles.current}>
       <CurrentWeatherInfo
         currentCity={currentCity?.activeCity}
         temperature={current?.temp}

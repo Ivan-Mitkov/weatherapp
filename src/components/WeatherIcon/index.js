@@ -106,8 +106,8 @@ const WeatherIcon = ({ code, big }) => {
   return (
     <img
       style={{
-        width: big ? "250px" : "100px",
-        height: big ? "250px" : "100px",
+        width: big ? "250px" : "200px",
+        height: big ? "250px" : "200px",
       }}
       src={Icon}
       alt={Icon}
