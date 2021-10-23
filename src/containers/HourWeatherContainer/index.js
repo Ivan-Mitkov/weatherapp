@@ -28,7 +28,7 @@ const HourWeatherContainer = () => {
 
   return (
     <div className={styles.container}>
-      <HoursWeatherLegend className={styles.legend}/>
+      <HoursWeatherLegend className={styles.legend} />
       <div className={styles.innerContainer}>
         {hourly &&
           hourly.map((current) => (
@@ -45,6 +45,7 @@ const HourWeatherContainer = () => {
               humidity={current?.humidity}
               pressure={current.pressure}
               windDegree={current.wind_deg}
+              weather={current.weather}
             />
           ))}
       </div>

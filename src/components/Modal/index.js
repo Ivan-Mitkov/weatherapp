@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { openModal, closeModal } from "../../store/actions";
+import { closeModal } from "../../store/actions";
 
 import styles from "./styles.module.scss";
 const Modal = (props) => {
@@ -13,12 +13,10 @@ const Modal = (props) => {
   );
 };
 
-const Popup = ({ title,  children }) => {
+const Popup = ({ title, children }) => {
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.modal);
   const { isModalOpen } = modal;
-
-  
 
   const handleClose = (e) => {
     e.stopPropagation();

@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import WeatherIcon from "../WeatherIcon";
 import styles from "./styles.module.scss";
 const CurrentWeatherInfo = ({
   temperature,
@@ -11,12 +12,15 @@ const CurrentWeatherInfo = ({
   weather,
 }) => {
   let weatherCondition = "";
+  let code = "";
   if (weather) {
     weatherCondition = weather[0].main;
+    code = weather[0].id;
   }
 
   return (
     <div className={styles.current}>
+      <WeatherIcon big code={code} />
       <div>
         {temperature}
         <span>&#176;C </span>
