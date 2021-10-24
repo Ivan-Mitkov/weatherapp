@@ -4,6 +4,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.scss";
 import CurrentWeatherScreen from "../CurrentWeatherScreen";
 import DailyForecastScreen from "../DailyForecastScreen";
+import ForecastInfoContainer from "../../containers/ForecastInfoContainer";
+import WeekendContainer from "../../containers/WeekendContainer";
 import Dropdown from "../../containers/DropDownContainer";
 import bImage from "../../resources/images/landscap.jpg";
 import Modal from "../../components/Modal";
@@ -33,7 +35,7 @@ const WeatherTabs = () => {
       <div className={styles.dropdown}>
         <Dropdown />
       </div>
-      <div className={styles.locationBg}> 
+      <div className={styles.locationBg}>
         <div className={styles.city}>{activeCity}</div>
         <div className={styles.country}>{activeCountry}</div>
       </div>
@@ -61,10 +63,10 @@ const WeatherTabs = () => {
             <DailyForecastScreen />
           </TabPanel>
           <TabPanel className={styles.tabPanels}>
-            <DailyForecastScreen />
+            <ForecastInfoContainer style={{ maxWidth: "90vw" }} />
           </TabPanel>
           <TabPanel className={styles.tabPanels}>
-            <DailyForecastScreen />
+            <WeekendContainer style={{ maxWidth: "90vw" }} />
           </TabPanel>
         </Tabs>
       </div>

@@ -28,11 +28,12 @@ const ForecastInfo = ({
     code = weather[0].id;
   }
   let dayOfTheWeek = moment(day).format("dddd");
-  let dayProvided = moment(day).format("dddd");
-  if (dayProvided === moment().format("dddd")) {
+  let dayProvided = moment(day).dayOfYear();
+
+  if (dayProvided === moment().dayOfYear()) {
     dayOfTheWeek = "Today";
   }
-  if (dayProvided === moment().add(1, "d").format("dddd")) {
+  if (dayProvided === moment().add(1, "d").dayOfYear()) {
     dayOfTheWeek = "Tomorrow";
   }
   //Sunrise and sunset
