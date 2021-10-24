@@ -17,7 +17,7 @@ export const getWeatherDetail =
     try {
       dispatch({ type: WEATHER_DETAILS_REQUEST });
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process?.env?.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       );
       dispatch({ type: WEATHER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
