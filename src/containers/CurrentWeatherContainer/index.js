@@ -1,22 +1,16 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector, shallowEqual } from "react-redux";
 import CurrentWeatherInfo from "../../components/CurrentWeatherInfo";
-import { getWeatherDetail } from "../../store/actions";
 import { convertUtcToLocalTime } from "../../utils/index";
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 const CurrentWeatherContainer = () => {
-  const dispatch = useDispatch();
-
-  const currentWeather = useSelector((state) => state.weather);
+  const currentWeather = useSelector((state) => state.weather, shallowEqual);
   const currentCity = useSelector((state) => state.city);
   const {
     loading,
     error,
     data: { current, timezone_offset, timezone },
   } = currentWeather;
-  useEffect(() => {
-    dispatch(getWeatherDetail(currentCity.lat, currentCity.lon));
-  }, [dispatch, currentCity.lat, currentCity.lon]);
 
   if (loading) {
     return <div>Loading</div>;

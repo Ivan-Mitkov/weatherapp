@@ -1,30 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import moment from "moment";
-
-import { useSelector, useDispatch } from "react-redux";
-import { getWeatherDetail } from "../../store/actions";
-
+import { useSelector, shallowEqual } from "react-redux";
 import ForecastInfo from "../../components/ForecastInfo";
 import styles from "./styles.module.scss";
-// import { MdArrowBackIosNew } from "react-icons/md";
-// import { MdArrowForwardIos } from "react-icons/md";
 
 const WeekendContainer = ({ style }) => {
-  const dispatch = useDispatch();
-
-  const currentWeather = useSelector((state) => state.weather);
-  const currentCity = useSelector((state) => state.city);
-
+  const currentWeather = useSelector((state) => state.weather, shallowEqual);
   const weekendRef = React.useRef();
-
   const {
     loading,
     error,
     data: { daily, timezone_offset, timezone },
   } = currentWeather;
-  useEffect(() => {
-    dispatch(getWeatherDetail(currentCity.lat, currentCity.lon));
-  }, [dispatch, currentCity.lat, currentCity.lon]);
 
   if (loading) {
     return null;
@@ -32,19 +19,6 @@ const WeekendContainer = ({ style }) => {
   if (error) {
     return <div>Error</div>;
   }
-
-  // const handleScroll = (direction) => {
-  //   if (direction === "left") {
-  //     weekendRef.current.scrollLeft = weekendRef
-  //       ? (weekendRef.current.scrollLeft += 200)
-  //       : null;
-  //   }
-  //   if (direction === "right") {
-  //     weekendRef.current.scrollLeft = weekendRef
-  //       ? (weekendRef.current.scrollLeft -= 200)
-  //       : null;
-  //   }
-  // };
 
   const filteredDays =
     daily &&

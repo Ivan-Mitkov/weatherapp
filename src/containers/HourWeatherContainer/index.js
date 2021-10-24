@@ -1,25 +1,19 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector, shallowEqual } from "react-redux";
 import HourWeatherInfo from "../../components/HourWeatherInfo";
 import HoursWeatherLegend from "../../components/HourWeatherInfo/HoursWeatherLegend";
-import { getWeatherDetail } from "../../store/actions";
 import { convertUtcToLocalTime } from "../../utils/index";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 import styles from "./styles.module.scss";
 const HourWeatherContainer = () => {
-  const dispatch = useDispatch();
-
-  const currentWeather = useSelector((state) => state.weather);
-  const currentCity = useSelector((state) => state.city);
+  const currentWeather = useSelector((state) => state.weather, shallowEqual);
   const {
     loading,
     error,
     data: { hourly, timezone_offset, timezone },
   } = currentWeather;
-  useEffect(() => {
-    dispatch(getWeatherDetail(currentCity.lat, currentCity.lon));
-  }, [dispatch, currentCity.lat, currentCity.lon]);
+
   const infoRef = React.useRef();
 
   if (loading) {

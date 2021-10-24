@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.scss";
@@ -11,15 +11,27 @@ import bImage from "../../resources/images/landscap.jpg";
 import Modal from "../../components/Modal";
 import Form from "../../components/PopupForm";
 import { openModal } from "../../store/actions";
+import { getWeatherDetail } from "../../store/actions";
+
 import styles from "./styles.module.scss";
 
 const WeatherTabs = () => {
-  const { activeCity, activeCountry } = useSelector((state) => state.city);
+  const { activeCity, activeCountry, lat, lon } = useSelector(
+    (state) => state.city
+  );
   // Modal
   const dispatch = useDispatch();
   const handleOpen = (e) => {
     dispatch(openModal());
   };
+
+  const loadWeather = useCallback(() => {
+    dispatch(getWeatherDetail(lat, lon));
+  }, [dispatch, lat, lon]);
+
+  useEffect(() => {
+    loadWeather();
+  }, [loadWeather]);
 
   return (
     <div
