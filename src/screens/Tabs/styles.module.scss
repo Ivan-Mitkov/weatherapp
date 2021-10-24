@@ -21,7 +21,6 @@
 .city {
   color: #fff;
   font-size: 4rem;
-  background-color: rgba(#000, 0.2);
   border-radius: 4px 4px 0 0;
   width: max-content;
   padding-right: 2rem;
@@ -30,10 +29,16 @@
 .country {
   color: #fff;
   font-size: 2rem;
-  background-color: rgba(#000, 0.2);
   border-radius: 0 0 4px 4px;
   width: max-content;
   padding-right: 2rem;
+}
+.locationBg {
+  background-color: rgba(#000, 0.2);
+  width: fit-content;
+  border-radius: 4px;
+  padding: 4px;
+  padding-left: 10px;
 }
 .addButton {
   justify-self: end;
@@ -59,15 +64,19 @@
 .tabStyle {
   border-radius: 0;
   background: #fff;
-  border-bottom: 4px solid orange;
-  transform: translateY(50%);
+  border-bottom: 8px solid orange;
+  transform: translateY(15px);
+  font-size: 2rem;
+  min-width: 150px;
+  text-align: center;
 }
 .tabStyleActive {
   border-radius: 0;
   background: #fff;
   border-bottom: none;
-  border-top: 4px solid orange;
+  border-top: 8px solid orange;
   width: 300px;
-  height: 60px;
+  height: 80px;
   transform: translateY(0);
+  font-size: 3rem;
 }

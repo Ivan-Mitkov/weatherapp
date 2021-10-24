@@ -33,7 +33,7 @@ const WeatherTabs = () => {
       <div className={styles.dropdown}>
         <Dropdown />
       </div>
-      <div>
+      <div className={styles.locationBg}> 
         <div className={styles.city}>{activeCity}</div>
         <div className={styles.country}>{activeCountry}</div>
       </div>
