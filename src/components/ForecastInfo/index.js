@@ -11,11 +11,18 @@ const ForecastInfo = ({ day, temperatureLow, temperatureHigh, weather }) => {
     weatherDescripion = weather[0].description;
     code = weather[0].id;
   }
-
+  let dayOfTheWeek = moment(day).format("dddd");
+  let dayProvided = moment(day).format("dddd");
+  if (dayProvided === moment().format("dddd")) {
+    dayOfTheWeek = "Today";
+  }
+  if (dayProvided === moment().add(1, "d").format("dddd")) {
+    dayOfTheWeek = "Tomorrow";
+  }
   return (
     <div className={styles.container}>
       <div className={styles.forecast}>
-        <div>{moment(day).format("dddd")}</div>
+        <div>{dayOfTheWeek}</div>
         <div>{moment(day).format("D.MM.yyyy")}</div>
         <WeatherIcon code={code} />
         <div>{weatherMain}</div>

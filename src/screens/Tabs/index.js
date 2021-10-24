@@ -39,12 +39,42 @@ const WeatherTabs = () => {
       <div className={styles.tabs}>
         <Tabs>
           <TabList className={styles.tablist}>
-            <Tab style={{ borderRadius: "0", background: "#fff" }}>
+            <Tab
+              style={{
+                borderRadius: "0",
+                background: "#fff",
+                borderTop: "4px solid orange",
+              }}
+            >
               В момента
             </Tab>
-            <Tab style={{ borderRadius: "0", background: "#fff" }}>24 часа</Tab>
-            <Tab style={{ borderRadius: "0", background: "#fff" }}>10 дни</Tab>
-            <Tab style={{ borderRadius: "0", background: "#fff" }}>Уикенд</Tab>
+            <Tab
+              style={{
+                borderRadius: "0",
+                background: "#fff",
+                borderBottom: "4px solid orange",
+              }}
+            >
+              24 часа
+            </Tab>
+            <Tab
+              style={{
+                borderRadius: "0",
+                background: "#fff",
+                borderBottom: "4px solid orange",
+              }}
+            >
+              10 дни
+            </Tab>
+            <Tab
+              style={{
+                borderRadius: "0",
+                background: "#fff",
+                borderBottom: "4px solid orange",
+              }}
+            >
+              Уикенд
+            </Tab>
           </TabList>
 
           <TabPanel className={styles.tabPanels}>
