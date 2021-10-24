@@ -150,7 +150,6 @@ const Form = () => {
     e.preventDefault();
     const isValidForm = isFormValid();
     if (isValidForm) {
-      console.log(`Form is valid`);
       const formDataToSend = [
         {
           ...form,
@@ -166,7 +165,7 @@ const Form = () => {
         dispatch(closeModal());
       }, 1000);
     } else {
-      console.log(`Invalid!`);
+      console.error(`Invalid!`);
     }
   };
   return (

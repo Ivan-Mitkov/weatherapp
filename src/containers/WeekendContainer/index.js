@@ -24,7 +24,6 @@ const WeekendContainer = ({ style }) => {
     daily &&
     daily.map((forecast) => {
       const currentDay = moment(forecast.dt * 1000).format("dddd");
-      console.log();
       if (
         currentDay === "Sunday" ||
         currentDay === "Saturday" ||

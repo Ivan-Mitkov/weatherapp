@@ -53,6 +53,7 @@
   background-color: rgb(226, 226, 253);
   font-size: 1.6rem;
   border-radius: 4px;
+  cursor: pointer;
   &:hover {
     background-color: darken(rgb(226, 226, 253), 2%);
   }

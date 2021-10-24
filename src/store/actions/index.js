@@ -1,5 +1,4 @@
 import axios from "axios";
-// import * as data from "../../exampleCall.json";
 import {
   WEATHER_DETAILS_REQUEST,
   WEATHER_DETAILS_SUCCESS,
@@ -21,8 +20,6 @@ export const getWeatherDetail =
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process?.env?.REACT_APP_API_KEY}`
       );
       dispatch({ type: WEATHER_DETAILS_SUCCESS, payload: data });
-      // console.log(data);
-      // dispatch({ type: WEATHER_DETAILS_SUCCESS, payload: data.default });
     } catch (error) {
       dispatch({
         type: WEATHER_DETAILS_FAIL,
@@ -38,7 +35,6 @@ export const updateCity = (option) => (dispatch) => {
 export const createMetrics = (metrics) => async (dispatch) => {
   try {
     dispatch({ type: CREATE_METRICS_REQUEST });
-    console.log(metrics);
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -50,11 +46,8 @@ export const createMetrics = (metrics) => async (dispatch) => {
       metrics,
       config
     );
-    console.log("ACTION DATA", data);
     dispatch({ type: CREATE_METRICS_SUCCESS, payload: data });
   } catch (error) {
-    console.log("ACTION ERROR", error);
-
     dispatch({
       type: CREATE_METRICS_FAIL,
       payload: "error",

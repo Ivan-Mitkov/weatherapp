@@ -85,7 +85,7 @@ const Dropdown = ({
         }
       }
     }
-  }, [isOpen, highlightedIndex, selectedIndex]);
+  }, [isOpen, highlightedIndex, selectedIndex, optionsRefs]);
 
   const higlightOption = (index) => {
     setHighlightedIndex(index);
