@@ -6,8 +6,8 @@ import { getWeatherDetail } from "../../store/actions";
 
 import ForecastInfo from "../../components/ForecastInfo";
 import styles from "./styles.module.scss";
-import { MdArrowBackIosNew } from "react-icons/md";
-import { MdArrowForwardIos } from "react-icons/md";
+// import { MdArrowBackIosNew } from "react-icons/md";
+// import { MdArrowForwardIos } from "react-icons/md";
 
 const WeekendContainer = ({ style }) => {
   const dispatch = useDispatch();
@@ -33,18 +33,18 @@ const WeekendContainer = ({ style }) => {
     return <div>Error</div>;
   }
 
-  const handleScroll = (direction) => {
-    if (direction === "left") {
-      weekendRef.current.scrollLeft = weekendRef
-        ? (weekendRef.current.scrollLeft += 200)
-        : null;
-    }
-    if (direction === "right") {
-      weekendRef.current.scrollLeft = weekendRef
-        ? (weekendRef.current.scrollLeft -= 200)
-        : null;
-    }
-  };
+  // const handleScroll = (direction) => {
+  //   if (direction === "left") {
+  //     weekendRef.current.scrollLeft = weekendRef
+  //       ? (weekendRef.current.scrollLeft += 200)
+  //       : null;
+  //   }
+  //   if (direction === "right") {
+  //     weekendRef.current.scrollLeft = weekendRef
+  //       ? (weekendRef.current.scrollLeft -= 200)
+  //       : null;
+  //   }
+  // };
 
   const filteredDays =
     daily &&
@@ -78,22 +78,22 @@ const WeekendContainer = ({ style }) => {
     });
   return (
     <div className={styles.container} style={{ ...style }}>
-      <button
+      {/* <button
         onClick={() => handleScroll("left")}
         className={styles.buttonLeft}
       >
         <MdArrowForwardIos />
-      </button>
+      </button> */}
       <div ref={weekendRef} className={styles.innerContainer}>
         {filteredDays}
       </div>
-      <button
+      {/* <button
         onClick={() => handleScroll("right")}
         className={styles.buttonRight}
       >
         {" "}
         <MdArrowBackIosNew />
-      </button>
+      </button> */}
     </div>
   );
 };

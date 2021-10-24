@@ -6,6 +6,9 @@
   padding: 40px;
   row-gap: 40px;
   padding-right: 20px;
+  @media only screen and (max-width: 500px) {
+    padding: 8px;
+  }
 }
 .dropdown {
   justify-self: end;
@@ -15,10 +18,9 @@
   margin: 0;
 }
 // .tabPanels {
-//   width: fit-content;
-//   min-width: 80vw;
-//   min-height: 50vh;
-//   background-color: #fff;
+// min-width: 80vw;
+// min-height: 50vh;
+
 // }
 .city {
   color: #fff;
@@ -71,6 +73,11 @@
   font-size: 2rem;
   min-width: 150px;
   text-align: center;
+  @media only screen and (max-width: 820px) {
+    margin: 8px;
+    border: none;
+    transform: translateY(0);
+  }
 }
 .tabStyleActive {
   border-radius: 0;
@@ -81,4 +88,10 @@
   height: 80px;
   transform: translateY(0);
   font-size: 3rem;
+  @media only screen and (max-width: 820px) {
+    margin: 8px;
+    border: none;
+    height: 50px;
+    width: 200px;
+  }
 }

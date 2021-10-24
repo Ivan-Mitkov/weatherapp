@@ -1,4 +1,9 @@
 .current {
-  max-width: 32vw;
+  min-width: 400px;
   height: 100%;
+  max-width: 30vw;
+  @media only screen and (max-width: 1040px) {
+    max-width: none;
+    height: fit-content;
+  }
 }

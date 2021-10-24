@@ -4,4 +4,8 @@
   align-items: center;
   max-width: 90vw;
   height: 70vh;
+  @media only screen and (max-width: 1040px) {
+    grid-template-columns: 1fr;
+    height: fit-content;
+  }
 }
