@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import "react-tabs/style/react-tabs.scss";
 import CurrentWeatherScreen from "../CurrentWeatherScreen";
 import DailyForecastScreen from "../DailyForecastScreen";
 import Dropdown from "../../containers/DropDownContainer";
@@ -10,6 +10,7 @@ import Modal from "../../components/Modal";
 import Form from "../../components/PopupForm";
 import { openModal } from "../../store/actions";
 import styles from "./styles.module.scss";
+
 const WeatherTabs = () => {
   const { activeCity, activeCountry } = useSelector((state) => state.city);
   // Modal
@@ -37,42 +38,18 @@ const WeatherTabs = () => {
         <div className={styles.country}>{activeCountry}</div>
       </div>
       <div className={styles.tabs}>
-        <Tabs>
+        <Tabs selectedTabClassName={styles.tabStyleActive}>
           <TabList className={styles.tablist}>
-            <Tab
-              style={{
-                borderRadius: "0",
-                background: "#fff",
-                borderTop: "4px solid orange",
-              }}
-            >
+            <Tab className={["react-tabs__tab", styles.tabStyle].join(" ")}>
               В момента
             </Tab>
-            <Tab
-              style={{
-                borderRadius: "0",
-                background: "#fff",
-                borderBottom: "4px solid orange",
-              }}
-            >
+            <Tab className={["react-tabs__tab", styles.tabStyle].join(" ")}>
               24 часа
             </Tab>
-            <Tab
-              style={{
-                borderRadius: "0",
-                background: "#fff",
-                borderBottom: "4px solid orange",
-              }}
-            >
+            <Tab className={["react-tabs__tab", styles.tabStyle].join(" ")}>
               10 дни
             </Tab>
-            <Tab
-              style={{
-                borderRadius: "0",
-                background: "#fff",
-                borderBottom: "4px solid orange",
-              }}
-            >
+            <Tab className={["react-tabs__tab", styles.tabStyle].join(" ")}>
               Уикенд
             </Tab>
           </TabList>

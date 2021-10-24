@@ -15,7 +15,7 @@
   margin: 0;
 }
 .tabPanels {
-  width: fit-content;
+  width: 90vw;
   background-color: #fff;
 }
 .city {
@@ -55,4 +55,19 @@
   width: 800px;
   /* Z index is very big but the portal is outside this  */
   z-index: 1000;
+}
+.tabStyle {
+  border-radius: 0;
+  background: #fff;
+  border-bottom: 4px solid orange;
+  transform: translateY(50%);
+}
+.tabStyleActive {
+  border-radius: 0;
+  background: #fff;
+  border-bottom: none;
+  border-top: 4px solid orange;
+  width: 300px;
+  height: 60px;
+  transform: translateY(0);
 }
