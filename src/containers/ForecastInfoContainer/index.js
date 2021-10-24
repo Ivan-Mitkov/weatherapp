@@ -4,6 +4,7 @@ import ForecastInfo from "../../components/ForecastInfo";
 import styles from "./styles.module.scss";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
+
 const CurrentWeatherContainer = () => {
   const currentWeather = useSelector((state) => state.weather);
   const forecastRef = React.useRef();
@@ -11,7 +12,7 @@ const CurrentWeatherContainer = () => {
   const {
     loading,
     error,
-    data: { daily },
+    data: { daily, timezone_offset, timezone },
   } = currentWeather;
 
   if (loading) {
@@ -61,6 +62,13 @@ const CurrentWeatherContainer = () => {
               temperatureLow={forecast.temp.min}
               temperatureHigh={forecast.temp.max}
               weather={forecast.weather}
+              feelsLike={forecast?.feels_like}
+              windSpeed={forecast?.wind_speed}
+              humidity={forecast?.humidity}
+              sunrise={forecast?.sunrise}
+              sunset={forecast?.sunset}
+              timezone_offset={timezone_offset}
+              timezone={timezone}
             />
           ))}
       </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as data from "../../exampleCall.json";
+// import * as data from "../../exampleCall.json";
 import {
   WEATHER_DETAILS_REQUEST,
   WEATHER_DETAILS_SUCCESS,
